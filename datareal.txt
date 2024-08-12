@@ -1,0 +1,19 @@
+// Campaign #1
+
+SpeciesId: 0, // array starts
+_name: "perezoso de tres dedos"
+_description: ""Entre las amenazas que mas presenta la especie en la región se encuentran la perdida de hábitat, la cacería ilegal, la presencia de perros domésticos que representan una fuerte presión para las poblaciones, el trafico ilegal de especímenes para venderlos como mascotas, entre otros.."
+_targetAmount: 1000000000000000000 // 1 ETH in wei
+_nftPrice: 20000000000000000 // 0.02 ETH in wei
+_maxNFTs: 10000
+_image: "https://colombia.inaturalist.org/taxa/440806-Mora-oleifera/browse_photos"
+
+// Campaign #2
+
+SpeciesId: 0, // array starts
+_name: "Swap"
+_description: "Saving forest and swamp in Buenaventura, Colombia."
+_targetAmount: 10000000000000000000 // 10 ETH in wei
+_nftPrice: 200000000000000000 // 0.2 ETH in wei
+_maxNFTs: 100
+_image: "Swap full of water"
