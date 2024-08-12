@@ -1,0 +1,9 @@
+SpeciesId: 0, // array starts
+_name: "Osos"
+_description: "Lazy Oso, a slow-moving bear mammal native to Crab Island."
+_targetAmount: 1000000000000000000 // 1 ETH in wei
+_nftPrice: 20000000000000000 // 0.02 ETH in wei
+_maxNFTs: 10000
+_image: "bearlazy"
+Oso
+https://static.grup/
