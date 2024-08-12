@@ -19,6 +19,7 @@ contract AnimalConservation is ERC721 {
         address[] contributors;    // List of addresses who contributed
         uint256[] contributions;   // Corresponding contribution amounts
     }
+
 // Mapping to store species information using their IDs
     mapping(uint256 => Species) public speciesMap;
 
@@ -40,3 +41,24 @@ contract AnimalConservation is ERC721 {
         // Ensure there's a limit on NFTs and they have a price
         require(_maxNFTs > 0, "Maximum NFTs must be greater than 0");
         require(_nftPrice > 0, "NFT price must be greater than 0");
+
+        // Increment the species counter
+        numberOfSpecies++;
+
+        // Create a new Species struct and store it in the mapping
+        speciesMap[numberOfSpecies] = Species({
+            speciesId: numberOfSpecies, // Assign the new ID
+            name: _name,
+            description: _description,
+            targetAmount: _targetAmount,
+            amountCollected: 0, // Initialize collected amount to 0
+            nftPrice: _nftPrice,
+            maxNFTs: _maxNFTs,
+            totalMinted: 0,     // Initialize minted NFTs to 0
+            contributors: new address[](0), // Empty array for contributors
+            contributions: new uint256[](0)  // Empty array for contribution amounts
+        });
+    }
+
+
+
