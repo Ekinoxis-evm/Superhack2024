@@ -1,3 +1,5 @@
+// Campaign #1
+
 SpeciesId: 0, // array starts
 _name: "Osos"
 _description: "Lazy Oso, a slow-moving bear mammal native to Crab Island."
@@ -5,5 +7,24 @@ _targetAmount: 1000000000000000000 // 1 ETH in wei
 _nftPrice: 20000000000000000 // 0.02 ETH in wei
 _maxNFTs: 10000
 _image: "bearlazy"
-Oso
-https://static.grup/
+
+
+/// Thearths: Entre las amenazas que mas presenta la especie en la región se encuentran la perdida de hábitat, la cacería ilegal, la presencia de perros domésticos que representan una fuerte presión para las poblaciones, el trafico ilegal de especímenes para venderlos como mascotas, entre otros.
+
+// Hash: https://optimism-sepolia.blockscout.com/tx/0xee235dd5977f9e607283dd799d3f4afdd1773a7f17fcd425b24a7aa8fa4056ce
+
+
+// Campaign #2
+
+SpeciesId: 0, // array starts
+_name: "Swap"
+_description: "Saving forest and swamp in Buenaventura, Colombia."
+_targetAmount: 10000000000000000000 // 10 ETH in wei
+_nftPrice: 200000000000000000 // 0.2 ETH in wei
+_maxNFTs: 100
+_image: "Swap full of water"
+
+
+// HasH: https://optimism-sepolia.blockscout.com/tx/0xd5703a8420f3ff50852f9d1ee2eb8834bf0539a36dad956a4947e4a881abe7ff
+
+
