@@ -20,7 +20,7 @@ contract AnimalConservation is ERC721 {
         uint256[] contributions;   // Corresponding contribution amounts
     }
 
-// Mapping to store species information using their IDs
+    // Mapping to store species information using their IDs
     mapping(uint256 => Species) public speciesMap;
 
     // Counter to keep track of the total number of species created
@@ -55,10 +55,57 @@ contract AnimalConservation is ERC721 {
             nftPrice: _nftPrice,
             maxNFTs: _maxNFTs,
             totalMinted: 0,     // Initialize minted NFTs to 0
+            image: _image,
             contributors: new address[](0), // Empty array for contributors
             contributions: new uint256[](0)  // Empty array for contribution amounts
         });
     }
 
+    // Function to contribute to a specific species campaign
+    function contributeToSpecies(uint256 _speciesId) public payable {
+        // Get the species details from the mapping
+        Species storage species = speciesMap[_speciesId];
 
+        // Ensure the contribution is at least the NFT price
+        require(msg.value >= species.nftPrice, "Insufficient funds to contribute");
 
+        // Calculate how many NFTs to mint based on the contribution
+        uint256 numNFTsToMint = msg.value / species.nftPrice;
+
+        // Check if minting more NFTs would exceed the limit
+        require(species.totalMinted + numNFTsToMint <= species.maxNFTs, "Minting limit reached");
+
+        // Add the contributor and their contribution amount to the arrays
+        species.contributors.push(msg.sender);
+        species.contributions.push(msg.value);
+
+        // Update the total amount collected
+        species.amountCollected += msg.value;
+
+        // Update the total number of NFTs minted
+        species.totalMinted += numNFTsToMint;
+
+        // Mint the NFTs and send them to the contributor
+        for (uint256 i = 0; i < numNFTsToMint; i++) {
+            _safeMint(msg.sender, species.totalMinted - numNFTsToMint + i); 
+        }
+    }
+
+    // Function to get the list of contributors and their contributions for a species
+    function getContributors(uint256 _speciesId) view public returns (address[] memory, uint256[] memory) {
+        return (speciesMap[_speciesId].contributors, speciesMap[_speciesId].contributions);
+    }
+
+    // Function to get all the created species campaigns
+    function getAllSpecies() public view returns (Species[] memory) {
+        // Create an array to store all species
+        Species[] memory allSpecies = new Species[](numberOfSpecies);
+
+        // Iterate through the speciesMap and populate the array
+        for (uint256 i = 1; i <= numberOfSpecies; i++) { 
+            allSpecies[i - 1] = speciesMap[i];
+        }
+
+        return allSpecies;
+    }
+}
